@@ -1,0 +1,139 @@
+body {
+    background: linear-gradient(135deg, #2b2b2b 0%, #4d4d4d 50%, #6a6a6a 100%) !important;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.container,
+.container-fluid,
+main {
+    background: transparent !important;
+}
+
+/* Títulos */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #fff !important;
+}
+
+/* Cards */
+
+.card,
+.card-body,
+.card-footer {
+    background: rgba(0, 0, 0, .35) !important;
+    border: 1px solid rgba(212, 175, 55, .4) !important;
+    color: #fff !important;
+}
+
+/* Inputs */
+
+.form-control,
+.form-select {
+    background: rgba(0, 0, 0, .5) !important;
+    color: #fff !important;
+    border: 1px solid #d4af37 !important;
+}
+
+.form-control::placeholder {
+    color: #ddd !important;
+}
+
+/* Botões principais */
+
+.btn-dourado,
+.btn-primary,
+.btn-secondary {
+    background: #d4af37 !important;
+    border-color: #d4af37 !important;
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.btn-dourado:hover{
+    background: #c29d2d ;
+    border-color: #c29d2d ;
+}
+
+
+.btn-detalhes {
+    background: rgba(212,175,55,0.15);
+    border: 1px solid #d4af37;
+    color: #f0c85a !important;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.btn-detalhes:hover {
+    background: #d4af37;
+    color: black;
+    transform: scale(1.2);
+}
+
+
+.badge-detalhes {
+    background: rgba(212,175,55,0.15);
+    color: #f0c85a !important;
+    border: 1px solid #d4af37;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.navbar-divx {
+    background: #000 !important;
+}
+
+.brand-name,
+.slogan,
+.navbar a {
+    color: #fff !important;
+}
+
+.slogan span {
+    color: #d4af37 !important;
+}
+
+
+.tabela-imoveis {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.tabela-imoveis thead th {
+    background: rgba(0, 0, 0, 0.55);
+    color: #d4af37 !important;
+    border: none !important;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.tabela-imoveis tbody tr {
+    background: rgba(0, 0, 0, 0.35);
+    transition: 0.2s;
+}
+
+.tabela-imoveis tbody tr:hover {
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.tabela-imoveis td {
+    border: none !important;
+    padding: 18px;
+}
+
+.tabela-imoveis tbody tr td:first-child {
+    border-radius: 12px 0 0 12px;
+}
+
+.tabela-imoveis tbody tr td:last-child {
+    border-radius: 0 12px 12px 0;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/site.css"/>
+    <title>@ViewData["Title"] - Imobiliária DivX</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+            .navbar-divx {
+                background: #000;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, .35);
+            }
+
+            .brand-name {
+                font-family: 'Playfair Display', serif;
+                letter-spacing: 1px;
+            }
+
+            .logo-divx {
+                filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
+            }
+
+            .slogan {
+                color: #fff;
+            }
+
+            .slogan span {
+                color: #d4af37;
+                font-weight: 600;
+            }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-divx mb-3">
+        <div class="container text-center py-2">
+
+            <a href="/Imovel">
+                <img src="~/images/logo.png" alt="Logo Imobiliária DivX" style="height: 130px;"
+                     class="mb-1 logo-divx" />
+            </a>
+
+            <div class="brand-name fs-4 fw-semibold">
+                Imobiliária DivX
+            </div>
+
+            <small class="slogan">
+                Porque cada <span>detalhe</span> importa.
+            </small>
+
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

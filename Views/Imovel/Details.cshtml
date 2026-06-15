@@ -1,0 +1,104 @@
+@model ImobiliariaMVC.Models.Imovel
+
+@{
+    ViewData["Title"] = "Detalhes do Imóvel";
+}
+
+<div class="container mt-4">
+
+    <div class="row mb-4">
+        <div class="col">
+            <h2 class="fw-bold text-center">
+                <i class="bi bi-house-door"></i> Detalhes do Imóvel
+            </h2>
+            <hr />
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+
+                    @if (!string.IsNullOrEmpty(Model.Imagem))
+                    {
+                        <div class="mb-4 text-center">
+                            <img src="@Model.Imagem" class="img-fluid rounded" style="max-height: 380px;" />
+                        </div>
+                    }
+
+                    <h3 class="fw-bold mb-3">
+                        @Model.Titulo
+                    </h3>
+
+                    <div class="mb-3">
+                        <span class="badge-detalhes me-2">
+                            @Model.Categoria
+                        </span>
+
+                        <span class="badge-detalhes">
+                            @Model.TipoNegocio
+                        </span>
+                    </div>
+
+                    <hr />
+
+                    <div class="mb-4">
+                        <p style="font-size: 1.05rem; color: #e6e6e6;">
+                            @Model.Descricao
+                        </p>
+                    </div>
+
+                    <div class="row mb-3">
+
+                        <div class="col-md-6">
+                            <label class="form-label">Valor</label>
+                            <div class="fw-bold text-white">
+                                @Model.Valor.ToString("C")
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Endereço</label>
+                            <div class="fw-bold text-white">
+                                @Model.Endereco
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <hr />
+
+                    <h5 class="mb-3">Cômodos</h5>
+
+                    @if (Model.Comodos != null && Model.Comodos.Count > 0)
+                    {
+                        <div class="d-flex flex-wrap gap-2">
+                            @foreach (var c in Model.Comodos)
+                            {
+                                <span class="badge-detalhes">
+                                    @c.Quantidade @c.Tipo
+                                </span>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted">Nenhum cômodo informado.</p>
+                    }
+
+                </div>
+
+                <div class="d-grid">
+                    <a href="/Imovel/Index" class="btn btn-dourado">
+                        <i class="bi bi-arrow-left"></i> Voltar
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

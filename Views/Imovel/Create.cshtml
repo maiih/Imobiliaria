@@ -1,0 +1,147 @@
+@model ImobiliariaMVC.Models.Imovel
+
+@{
+    ViewData["Title"] = "Cadastrar Imóvel";
+}
+
+<div class="container mt-4">
+
+    <div class="row mb-4">
+        <div class="col">
+            <h2 class="fw-bold text-center">
+                <i class="bi bi-plus-circle"></i> Cadastrar Imóvel
+            </h2>
+            <hr />
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+
+                    <form method="post" enctype="multipart/form-data">
+
+                        <div class="mb-3">
+                            <label class="form-label">Título</label>
+                            <input name="Titulo" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Descrição</label>
+                            <textarea name="Descricao" class="form-control" rows="3" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Categoria</label>
+                            <select name="Categoria" class="form-select" required>
+                                <option value="">Selecione</option>
+                                <option>Comercial</option>
+                                <option>Residencial</option>
+                                <option>Rural</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de Negócio</label>
+                            <select name="TipoNegocio" class="form-select" required>
+                                <option value="">Selecione</option>
+                                <option>Venda</option>
+                                <option>Aluguel</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Valor</label>
+                            <input name="Valor" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Endereço</label>
+                            <input name="Endereco" class="form-control" required />
+                        </div>
+
+                        <hr />
+                        <h4>Adicionar Cômodos</h4>
+
+                        <div id="comodos">
+
+                            <div class="row mb-2 comodo-item">
+                                <div class="col-md-6">
+                                    <select name="Comodos[0].Tipo" class="form-select tipo-comodo">
+                                        <option>Quarto</option>
+                                        <option>Sala</option>
+                                        <option>Cozinha</option>
+                                        <option>Banheiro</option>
+                                        <option>Garagem</option>
+                                        <option>Área de Serviço</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="number"
+                                           name="Comodos[0].Quantidade"
+                                           class="form-control"
+                                           min="1"
+                                           value="1" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <button type="button"
+                                class="btn btn-secondary btn-sm mb-3"
+                                onclick="addComodo()">
+                            Adicionar cômodo
+                        </button>
+
+                        <div class="mb-4">
+                            <label class="form-label">Imagem</label>
+                            <input type="file" name="imagem" class="form-control" accept="image/*" />
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-dourado">
+                                Salvar Imóvel
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let index = 1;
+
+    function addComodo() {
+        const container = document.getElementById('comodos');
+
+        const html = `
+            <div class="row mb-2 comodo-item">
+                <div class="col-md-6">
+                    <select name="Comodos[${index}].Tipo" class="form-select">
+                        <option>Quarto</option>
+                        <option>Sala</option>
+                        <option>Cozinha</option>
+                        <option>Banheiro</option>
+                        <option>Garagem</option>
+                        <option>Área de Serviço</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <input type="number"
+                           name="Comodos[${index}].Quantidade"
+                           class="form-control"
+                           min="1"
+                           value="1" />
+                </div>
+            </div>
+        `;
+
+        container.insertAdjacentHTML('beforeend', html);
+        index++;
+    }
+</script>

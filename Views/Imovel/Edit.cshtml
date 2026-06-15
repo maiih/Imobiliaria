@@ -1,0 +1,116 @@
+@model ImobiliariaMVC.Models.Imovel
+
+@{
+    ViewData["Title"] = "Editar Imóvel";
+}
+
+<div class="container mt-4">
+
+    <div class="row mb-4">
+        <div class="col">
+            <h2 class="fw-bold text-center">
+                <i class="bi bi-pencil-square"></i> Editar Imóvel
+            </h2>
+            <hr />
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+
+                    <form method="post" enctype="multipart/form-data">
+
+                        <input type="hidden" name="Id" value="@Model.Id" />
+
+                        <div class="mb-3">
+                            <label class="form-label">Título</label>
+                            <input name="Titulo" class="form-control" value="@Model.Titulo" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Descrição</label>
+                            <textarea name="Descricao" class="form-control">@Model.Descricao</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Categoria</label>
+                            <select name="Categoria" class="form-select">
+                                <option selected>@Model.Categoria</option>
+                                <option>Comercial</option>
+                                <option>Residencial</option>
+                                <option>Rural</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de Negócio</label>
+                            <select name="TipoNegocio" class="form-select">
+                                <option selected>@Model.TipoNegocio</option>
+                                <option>Venda</option>
+                                <option>Aluguel</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Valor</label>
+                            <input name="Valor" class="form-control" value="@Model.Valor" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Endereço</label>
+                            <input name="Endereco" class="form-control" value="@Model.Endereco" />
+                        </div>
+
+                        <h4>Cômodos</h4>
+
+                        <div id="comodos">
+                            @for (int i = 0; i < Model.Comodos.Count; i++)
+                            {
+                                <div class="row mb-2">
+                                    <div class="col-md-6">
+                                        <select name="Comodos[@i].Tipo" class="form-control">
+                                            @foreach (var tipo in ViewBag.TiposComodo)
+                                            {
+                                                <option value="@tipo.Value"
+                                                        selected="@(tipo.Value == Model.Comodos[i].Tipo.ToString())">
+                                                    @tipo.Text
+                                                </option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="number" name="Comodos[@i].Quantidade" class="form-control" min="1"
+                                               value="@Model.Comodos[i].Quantidade" />
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(Model.Imagem))
+                        {
+                            <div class="mb-3 text-center">
+                                <img src="@Model.Imagem" class="img-fluid rounded" style="max-height:200px;" />
+                            </div>
+                        }
+
+                        <div class="mb-4">
+                            <label class="form-label">Nova Imagem</label>
+                            <input type="file" name="imagem" class="form-control" />
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-dourado">
+                                <i class="bi bi-check-circle"></i> Salvar Alterações
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
